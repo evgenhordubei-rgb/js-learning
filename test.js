@@ -98,22 +98,28 @@
 // }
 
 
-const value = prompt('Введіть назву товару').toLowerCase();
-let cost;
+// const value = prompt('Введіть назву товару').toLowerCase();
+// let cost;
 
-switch (value) {
-    case 'риба':
-        cost = 100;
-        alert(`Вартість товару ${value} становить ${cost} грн.`);
-        break;
-    case 'молоко':
-        cost = 50;
-        alert(`Вартість товару ${value} становить ${cost} грн.`);
-        break;
-    case 'хліб':
-        cost = 20;
-        alert(`Вартість товару ${value} становить ${cost} грн.`);
-        break;
-    default:
-        alert(`Товар ${value} не знайдено`);
-}
+// switch (value) {
+//     case 'риба':
+//         cost = 100;
+//         alert(`Вартість товару ${value} становить ${cost} грн.`);
+//         break;
+//     case 'молоко':
+//         cost = 50;
+//         alert(`Вартість товару ${value} становить ${cost} грн.`);
+//         break;
+//     case 'хліб':
+//         cost = 20;
+//         alert(`Вартість товару ${value} становить ${cost} грн.`);
+//         break;
+//     default:
+//         alert(`Товар ${value} не знайдено`);
+// }
+
+// function showMessage(name, age) {
+//     console.log('Hello i am ' + name + ' and i am ' + age + ' years old');
+// }
+// showMessage('John', 30);
+// showMessage('Nastya', 48);
