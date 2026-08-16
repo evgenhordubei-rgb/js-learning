@@ -118,8 +118,184 @@
 //         alert(`Товар ${value} не знайдено`);
 // }
 
+
+//функція для багаторазового використання
 // function showMessage(name, age) {
 //     console.log('Hello i am ' + name + ' and i am ' + age + ' years old');
 // }
 // showMessage('John', 30);
 // showMessage('Nastya', 48);
+
+
+
+
+
+
+
+//функція для того щоб передати функцію як аргумент в іншу функцію або якщо функція потрібна лише для одноразового використання
+
+// let userName = ' Anna';
+
+// const sayHi = function () {
+//     let message = 'hello';
+//     console.log(message + userName);
+// }
+// sayHi();
+
+// function sum(a, b) {
+//     return a + b;
+// }
+
+// let result = sum(7, 8);
+// console.log(result);
+
+// const testFunction = function (a, b) {
+//     console.log('a :', a);
+//     console.log('b :', b);
+// }
+// testFunction(5, 10);
+
+
+
+// const a = function () {
+//     c();
+//     console.log('function a');
+//     b();
+// }
+// const b = function () {
+//     console.log('function b');
+// }
+// const c = function () {
+//     console.log('function c');
+// }
+
+// a();
+
+
+
+// const addName = function () {
+//     const arg = Array.from(arguments);
+//     console.log(arguments);
+//     console.log(arg);
+// };
+// addName(1, 3, 5);
+// addName(1, 3, 5, 98, 45);
+
+
+
+
+// function ask(question, yes, no) {
+//     if (confirm(question)) {
+//         yes()
+//     } else {
+//         no()
+//     }
+// }
+
+// function showOk() {
+//     console.log('you say ok');
+// }
+
+// function showCancle() {
+//     console.log('you say no');
+// }
+
+// ask('yes or no?', showOk, showCancle);
+
+
+
+// const hello = function (name) {
+//     console.log(`Hello, ${name}`);
+// }
+
+// const searchName = function (callback) {
+//     const name = 'ivan';
+//     callback(name);
+// }
+
+// searchName(hello);
+
+
+
+// const hello = function (town) {
+//     console.log(`Hello, ${town}`);
+// }
+
+// const searchTown = function (callback) {
+//     const town = 'Kyiv';
+//     callback(town);
+// }
+
+// searchTown(hello);
+
+
+// function checkAge(age) {
+//     if (age >= 18) {
+//         return console.log('Hello');
+//     }
+//     return console.log('Goodbye');
+
+// }
+// checkAge(19);
+
+
+// function showMovie(age) {
+//     if (age <= 21) {
+//         return console.log('You are not allowed to watch this movie');
+//     }
+//     return console.log('Enjoy the movie!');
+// }
+// showMovie(22);
+
+// стрілкові функції
+// const test = (arg) => {
+//     console.log(arg);
+// }
+// test('Hello, world!');
+
+
+
+// const showMovie = (age) => {
+//     if (age <= 21) {
+//         return console.log('You are not allowed to watch this movie');
+//     }
+//     return console.log('Enjoy the movie!');
+// }
+// showMovie(21);
+
+
+// const a = () => {
+//     console.log('a');
+// }
+// const b = () => {
+//     console.log('b');
+// }
+// const c = () => {
+//     console.log('c');
+//     a();
+//     b();
+// }
+// c();
+
+console.log(document);
+
+const addNumber = (number) => {
+    let sum = Number(number) + 10;
+    return console.log(sum);
+}
+
+const numberRef = document.querySelector('input[name="number"]');
+
+const buttonRef = document.querySelector('button');
+
+buttonRef.addEventListener('click', () => addNumber(numberRef.value));
+
+
+
+// buttonRef.addEventListener('click', () => {
+//     console.log(numberRef.value);
+// });
+
+// buttonRef.addEventListener('click', () => {
+//     console.log('click');
+// });
