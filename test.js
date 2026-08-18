@@ -574,29 +574,29 @@
 
 //-другий спосіб
 
-const infoCar = {
-    name: 'BMW',
-    model: 'M7',
-    color: 'black',
-    showInfo: function () {
-        console.group(this.name, 'info:')
-        console.log(`Car : ${this.name}`)
-        console.log(`model : ${this.model}`)
-        console.log(`color : ${this.color}`)
-        console.groupEnd();
-    },
-};
+// const infoCar = {
+//     name: 'BMW',
+//     model: 'M7',
+//     color: 'black',
+//     showInfo: function () {
+//         console.group(this.name, 'info:')
+//         console.log(`Car : ${this.name}`)
+//         console.log(`model : ${this.model}`)
+//         console.log(`color : ${this.color}`)
+//         console.groupEnd();
+//     },
+// };
 
-const infoCar2 = {
-    name: 'Marcedes',
-    model: 'S class',
-    color: 'white',
-};
-infoCar.showInfo.bind(infoCar2)();
+// const infoCar2 = {
+//     name: 'Marcedes',
+//     model: 'S class',
+//     color: 'white',
+// };
+// infoCar.showInfo.bind(infoCar2)();
 // infoCar.showInfo.call(infoCar2);
 // infoCar.showInfo.apply(infoCar2);
 
-infoCar.showInfo.bind(infoCar)();
+// infoCar.showInfo.bind(infoCar)();
 // infoCar.showInfo.call(infoCar);
 // infoCar.showInfo.apply(infoCar);
 
