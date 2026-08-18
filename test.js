@@ -277,19 +277,23 @@
 // }
 // c();
 
-console.log(document);
 
-const addNumber = (number) => {
-    let sum = Number(number) + 10;
-    return console.log(sum);
-}
+//------------
 
-const numberRef = document.querySelector('input[name="number"]');
 
-const buttonRef = document.querySelector('button');
+// console.log(document);
 
-buttonRef.addEventListener('click', () => addNumber(numberRef.value));
+// const addNumber = (number) => {
+//     let sum = Number(number) + 10;
+//     return console.log(sum);
+// }
 
+
+// const numberRef = document.querySelector('input[name="number"]');
+
+// const buttonRef = document.querySelector('button');  //спосіб як використовувати querySelector
+
+// buttonRef.addEventListener('click', () => addNumber(numberRef.value));
 
 
 // buttonRef.addEventListener('click', () => {
@@ -299,3 +303,306 @@ buttonRef.addEventListener('click', () => addNumber(numberRef.value));
 // buttonRef.addEventListener('click', () => {
 //     console.log('click');
 // });
+
+//----------
+
+//замикання
+// function createNewSum(n) {
+//     return function () {
+//         console.log(10 * n)
+//     }
+// }
+
+// const calc = createNewSum(20)
+// calc()
+
+// function createNewNum(n) {
+//     return function (num) {
+//         return n + num;
+//     };
+// }
+// const myNum = createNewNum(15);
+// console.log(myNum(40));
+
+// function createUrl(domain) {
+//     return function (url) {
+//         return `https://${url}.${domain}`;
+//     };
+// }
+// const myDomain = createUrl('com')
+// console.log(myDomain('youtube'))
+
+//this
+
+// const user = {
+//     name: "Анна",
+//     sayHi: function () {
+//         console.log(this.name);
+//     }
+// };
+// user.sayHi(); 
+
+
+
+// function hello() {
+//     console.log('hello', this)
+// }
+// hello()
+
+// const user = {
+//     name: "Ivan",
+//     city: "Odessa",
+//     sayHello: hello,
+// };
+// user.sayHello()
+
+
+
+// function abc() {
+//     console.log('в функції');
+//     console.log(this);
+// }
+// abc();
+
+// document.querySelector('p').onclick = abc;    //-ще один спосіб як використовувати querySelector
+
+
+
+// function changeColor() {
+//     console.log(this);
+//     this.style.background = 'green';
+// }
+// document.querySelector('div').onclick = changeColor; //-легкіший путь
+
+// const textRef = document.querySelector('div'); //-альтернатива(для розуміння коду)
+// textRef.addEventListener('click', changeColor);
+
+
+
+// function changeColor() {
+//     this.style.background = 'green';
+// }
+
+// let user = document.querySelectorAll('div');
+// user.forEach(function (element) {
+//     element.onclick = changeColor;
+// });
+
+
+// const showList = () => {
+//     console.log(this);
+// };
+// showList();
+
+// const list = {
+//     names: ['Anna', 'Olga', 'Nata'],
+//     showList: showList,
+// };
+
+// list.showList(); 
+
+
+
+// function hello() {
+//     console.log(this);
+// }
+// const user = {
+//     name: "Ivan",
+//     age: 30,
+//     hello: hello,
+//     sayHelloWindow: hello.bind(window),
+//     info: function () {
+//         console.log(`My name is ${this.name}`)
+//         console.log(`My age is ${this.age}`)
+//     }
+// };
+
+// user.sayHelloWindow();
+// user.info();
+
+//використання this //-перший спосіб
+
+// const user1 = {
+//     name: "Ivan",
+//     age: 30,
+//     info: function () {
+//         console.log(`My name is ${this.name}`)
+//         console.log(`My age is ${this.age}`)
+//     },
+// };
+
+// const user2 = {
+//     name: "Nastya",
+//     age: 24,
+//     info: user1.info,
+// };
+// user1.info()
+// user2.info()
+
+//використання bind //-другий спосіб
+
+// const user = {
+//     name: "Ivan",
+//     age: 30,
+//     info: function (city) {
+//         console.log(`My name is ${this.name}`)
+//         console.log(`My age is ${this.age}`)
+//         console.log(`My city is ${city}`)
+
+//     },
+// };
+
+// const natali = {
+//     name: 'Natali',
+//     age: 42,
+// };
+
+// const Alex = {
+//     name: 'Alex',
+//     age: 18,
+// };
+
+// user.info.bind(natali)('Kyiv') // + ще можна в функції писати змінну яка вже не буде потребувати this, але доведеться писати в дужки змінні окремо
+// user.info.bind(Alex)('London') //-останні дужки в кодови означають виконання функції, тобіш без них команда просто чекатиме на виконання
+// user.info('Paris')
+
+
+//-----call and console.group
+// const userInfo = {
+//     name: 'Vanya',
+//     age: 45,
+//     logInfo: function (job) {
+//         console.group(`${this.name} info:`)
+//         console.log(`name is : ${this.name}`)
+//         console.log(`age is : ${this.age}`)
+//         console.log(`job is : ${job}`)
+//         console.groupEnd();
+//     },
+// };
+// userInfo.logInfo('developer');
+
+
+// const Vano = {
+//     name: 'Ivan',
+//     age: 45,
+// };
+// userInfo.logInfo.call(Vano, 'developer');
+
+//-----apply
+
+// const showUserInfo = {
+//     name: name,
+//     age: 78,
+//     logInfo: function (job, city) {
+//         console.group(`${this.name} info:`)
+//         console.log(`name is : ${this.name}`)
+//         console.log(`age is : ${this.age}`)
+//         console.log(`job is : ${job}`)
+//         console.log(`city is : ${city}`)
+
+//         console.groupEnd();
+//     }
+// }
+
+
+// const Vano = {
+//     name: 'Ivan',
+//     age: 45,
+// };
+
+// showUserInfo.logInfo.apply(Vano, ['developer', 'Lviv']);
+
+
+///////////////////////
+
+//-apply call and bind in one project
+
+// const message = function (name, stars) {
+//     console.log(`${name}, Welcome to ${this.hotel}, stars ${stars}`);
+// };
+
+// const Bukovel = { hotel: 'Bukovel' };
+// const Turist = { hotel: 'Turist' };
+
+// message.apply(Bukovel, ['alina', '4'])
+// message.call(Turist, 'alina', '2')
+// message.bind(Turist, 'alina', '3')()
+
+
+//////////////////////
+
+// const cart = {
+//     showItems() {
+//         console.log('в корзині:', this.items);
+//     },
+// };
+
+// const woman = {
+//     items: ['dress, shoe'],
+// };
+// const man = {
+//     items: ['jeans, socks'],
+// };
+// const kid = {
+//     items: ['cap, trausers'],
+// };
+
+// document.querySelector('#woman').addEventListener('click', cart.showItems.bind(woman));
+// document.querySelector('#man').addEventListener('click', cart.showItems.bind(man));
+// document.querySelector('#kid').addEventListener('click', cart.showItems.bind(kid));
+
+////////////////
+//-перший спосіб
+// const infoCar = {
+//     name: 'BMW',
+//     model: 'M7',
+//     color: 'black',
+//     showInfo: function () {
+//         console.log('Car: ' + this.name + ' model: ' + this.model + ' color: ' + this.color);
+//     },
+// };
+
+// const infoCar2 = {
+//     name: 'Marcedes',
+//     model: 'S class',
+//     color: 'white',
+// };
+// infoCar.showInfo.bind(infoCar2)();
+// infoCar.showInfo.call(infoCar2);
+// infoCar.showInfo.apply(infoCar2);
+
+
+//-другий спосіб
+
+const infoCar = {
+    name: 'BMW',
+    model: 'M7',
+    color: 'black',
+    showInfo: function () {
+        console.group(this.name, 'info:')
+        console.log(`Car : ${this.name}`)
+        console.log(`model : ${this.model}`)
+        console.log(`color : ${this.color}`)
+        console.groupEnd();
+    },
+};
+
+const infoCar2 = {
+    name: 'Marcedes',
+    model: 'S class',
+    color: 'white',
+};
+infoCar.showInfo.bind(infoCar2)();
+// infoCar.showInfo.call(infoCar2);
+// infoCar.showInfo.apply(infoCar2);
+
+infoCar.showInfo.bind(infoCar)();
+// infoCar.showInfo.call(infoCar);
+// infoCar.showInfo.apply(infoCar);
+
+
+
+
+
+
+
