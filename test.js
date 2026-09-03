@@ -601,8 +601,216 @@
 // infoCar.showInfo.apply(infoCar);
 
 
+//процедурне програмування
+// const sum = 20000;
+// const month = 12;
+// const p = 1000;
+
+
+// const credit = (sum, month, p) => {
+//     return sum + p * month;
+// }
+// console.log(credit(sum, month, p));
+
+
+
+//об'єктно орієнтоване програмування - ООП
+// const credit = {
+//     sum: 20000,
+//     month: 12,
+//     p: 1000,
+//     result() {
+//         return this.sum + this.p * this.month;
+//     },
+// };
+// console.log(credit.result());
 
 
 
 
 
+// //класи
+// class bank { //-зробили цей клас і надали другому класові успадкування
+//     static type = 'privat'; //-викликати можна через
+//     constructor(options) {
+//         this.sum = options.sum;
+//         this.month = options.month;
+//         this.p = options.p;
+//     }
+//     credit() {
+//         return console.log('i m private');
+//     }
+// }
+
+// // const Userbank = new bank({
+// //     sum: 30000,
+// //     month: 5,
+// //     p: 500,
+// // });
+// // console.log(bank.type);
+// // console.log(Userbank.credit());
+
+// class Newbank extends bank { //-надали новому класові успадкування старого     
+//     constructor(options) {
+//         super(options);
+//         this.card = options.card; //-воно тут
+//         this.result = options.result; //-воно тут
+//     }
+//     credit() {
+//         super.credit();
+//         return console.log('i m new bank');
+//     }
+// }
+
+// const aval = new Newbank({
+//     sum: 30000,
+//     month: 5,
+//     p: 500,
+//     card: true, //-треба записувати в констукторі класу присвоєння 
+//     result() { //-треба записувати в констукторі класу присвоєння 
+//         return this.sum + this.p * this.month;
+//     }
+// })
+// aval.credit();
+// console.log(aval.card);
+// console.log(aval.result());
+// console.log(bank.type);
+
+
+
+
+//get & set
+// class User { //-створили пустого юзера і надали йому властивості
+//     constructor(props) {
+//         this.name = props.name;
+//     }
+//     FirstName = '';
+//     lastName = '';
+//     age = '';
+//     city = '';
+
+//     set name(newName) { //-цьому name потім можна присвоїти любе значення іменні в змінній
+//         const nameRow = newName.split(' ');
+//         this.FirstName = nameRow[0];
+//         this.lastName = nameRow[1];
+//         this.age = nameRow[2];
+//     }
+//     get name() {
+//         return `First name: ${this.FirstName}, Last name: ${this.lastName}`;
+//     }
+// }
+
+
+// const Kris = new User({ //-дали новому юзеру властивості і присвоїли значення
+//     name: 'Kris Smith', //- задали значення змінній name
+// });
+// console.log(Kris);
+
+
+
+//з age
+
+// class User { //-створили пустого юзера і надали йому властивості
+//     constructor(props) {
+//         this.name = props.name;
+//         this.age = props.age; //-так, як нам не потрібно обробляти вік то просто його записуємо сюда
+//     }
+//     FirstName = '';
+//     lastName = '';
+//     age = '';
+//     city = '';
+
+//     set name(newName,) { //-цьому name потім можна присвоїти любе значення іменні в змінній
+//         const nameRow = newName.split(' ');
+//         this.FirstName = nameRow[0];
+//         this.lastName = nameRow[1];
+//     }
+//     get name() {
+//         return `First name: ${this.FirstName}, Last name: ${this.lastName}`;
+//     }
+// }
+
+
+// const Kris = new User({ //-дали новому юзеру властивості і присвоїли значення
+//     name: 'Kris Smith', //- задали значення змінній name
+//     age: 31, //- задали значення змінній age
+
+// });
+// console.log(Kris);
+
+//такий самий спосіб тільки без get & set, але тоді не можна буде обробляти значення змінної name
+
+// class User {
+//     constructor(props) {
+//         this.name = props.name;
+//         this.age = props.age;
+//     }
+// }
+
+// const Kris = new User({
+//     name: 'Kris Smith',
+//     age: 31,
+// });
+
+// console.log(Kris.name); 
+
+
+
+
+
+//- властивості об'єкта і прототипи
+
+// const a = {
+//     x: 10,
+//     y: 20,
+// };
+
+// const b = Object.create(a);
+// console.log(b); //-b успадковує властивості a
+
+
+// const Manager = function (name, sales) {
+//     this.name = name;
+//     this.sales = sales;
+
+//     // this.sale = function () {
+//     //     this.sales += 1;
+//     // }
+// };
+
+// const ann = new Manager('Ann', 5);
+// const ivan = new Manager('ivan', 3);
+
+// Manager.prototype.sale = function () {
+//     this.sales += 1;
+// }
+
+
+// console.log(ann);
+// ann.sale();
+// console.log(ann);
+
+//-кофе машинка з set & get та умовами
+
+// class coffeeMachine {
+//     _water = 0;
+//     #waterLimit = 200;
+
+//     constructor(power) {
+//         this.power = power;
+//     }
+
+//     set WaterAmount(value) {
+//         if (value < 0) {
+//             value = 0;
+//         }
+//         if (value > this.#waterLimit) {
+//             value = 0;
+//         }
+//         this._water = value;
+//     }
+// }
+
+// let coffeeMachine1 = new coffeeMachine(100);
+// coffeeMachine1.WaterAmount = 150;
+// console.log(coffeeMachine1);
