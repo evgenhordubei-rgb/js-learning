@@ -814,3 +814,120 @@
 // let coffeeMachine1 = new coffeeMachine(100);
 // coffeeMachine1.WaterAmount = 150;
 // console.log(coffeeMachine1);
+
+//перший спосіб
+
+// const person = {
+//     a: 'John',
+//     b: 'Wick',
+// };
+// const { a: name, b: lastname } = person;
+// console.log('hello', name, lastname);
+
+
+
+// другий спосіб
+// const person = {
+//     a: 'John',
+//     b: 'Wick',
+// };
+
+// const func1 = ({ a: name, b: lastname }) => {
+//     console.log('hello', name, lastname);
+
+// };
+// func1(person);
+
+//Iterator and Generator
+// const numbers = [10, 20, 30];
+// const iterator = numbers[Symbol.iterator]();
+
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
+
+// function* numbers() {
+//     yield 10;
+//     yield 20;
+// }
+
+// const generator = numbers();
+
+// console.log(generator.next());
+// console.log(generator.next());
+// console.log(generator.next());
+// console.log(generator.next());
+
+//Map and Set
+// const myMap = new Map();
+
+// myMap.set('name', 'Kris');
+
+// console.log(myMap.get('name')); //-метод get() використовується коли використовуємо Map
+
+
+
+// const mySet = new Set([10, 20, 30]);
+
+// console.log(mySet.has(20)); //-метод has() використовується коли використовуємо Set, він чи є значення в переліку
+// console.log(mySet.has(50)); 
+
+
+//promise
+//задачка
+// const age = 15;
+
+// const myPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         if (age <= 18) {
+//             resolve('дозволено');
+//         }
+//         else {
+//             reject('не дозволено');
+//         }
+//     }, 1000);
+// });
+
+
+// myPromise
+//     .then(result => console.log(result)) //- якщо умова виконується то спрацьовує then
+//     .catch(error => console.log(error)); //- якщо умова не виконується то спрацьовує catch
+
+
+
+//proxy
+
+// const target = {}; //-обєкт
+
+// const handler = { //-метод, перекладається як обробник
+//     get: function (obj, prop) { //- ця функція знаходиться в ключеві і ця функція в собі має два параметра перший обєкт який відповідає за таргет а другий проп який відповідає за властивість обєкту
+//         return prop in obj //-перевіряє чи є влістивість в обєкті
+//             ? obj[prop] //-якщо так то перевіряє значення знайденої властивості (ключа)
+//             : 'Property does not exist'; //-інакше повертає повідомлення що властивість не існує
+//     }
+// };
+
+// const proxy = new Proxy(target, handler);
+
+// console.log('Proxy Example:', proxy.noExist); //-дуже важливо розуміти що після проксі текст є ДОВІЛЬНИМ і якшо він не буде співпадати з ключем таргета то він видасть noExist
+
+
+//задачка
+
+// const product = {
+//     name: 'phone',
+//     price: 1000,
+// };
+// const handler = {
+//     get: function (obj, prop) {
+//         return prop in obj
+//             ? obj[prop]
+//             : 'Такої властивості немає';
+//     }
+// };
+
+// const proxyProduct = new Proxy(product, handler);
+// console.log(proxyProduct.name);
+// console.log(proxyProduct.price);
+// console.log(proxyProduct.color);
